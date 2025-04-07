@@ -40,7 +40,6 @@ public class ProductServiceTest {
         ProductService productService = new ProductService();
         Product product2 = new Product(2,"pan",20);
         productService.createProduct(product2);
-        productService.getProducts();
         assertEquals("pan", productService.getProducts().get(0).getName());
     }
 }
