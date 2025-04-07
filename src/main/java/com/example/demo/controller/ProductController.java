@@ -22,6 +22,7 @@ public class ProductController {
 
     @GetMapping("/getProducts")
     public ResponseEntity<List<Product>> getProducts() {
+        System.out.println("------------------------------llamadoooooooooooooooooooo");
         return ResponseEntity.ok(productService.getProducts());
     }
 

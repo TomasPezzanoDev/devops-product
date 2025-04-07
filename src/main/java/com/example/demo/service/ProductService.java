@@ -16,6 +16,9 @@ public class ProductService {
     }
 
     public List<Product> getProducts() {
+        Product product = new Product(4,"maiz",25.99);
+        products.add(product);
+
         return products;
     }
 
