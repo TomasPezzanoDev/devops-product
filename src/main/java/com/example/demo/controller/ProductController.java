@@ -3,10 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entities.Product;
 import com.example.demo.service.ProductService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,8 +23,20 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProducts());
     }
 
+    @GetMapping("/generateProducts")
+    public void generateProducts() {
+        System.out.println("generando productos");
+        this.productService.generateProducts();
+    }
+
     @PostMapping("/createProduct")
     public Product createProduct(@RequestBody Product product) {
         return this.productService.createProduct(product);
+    }
+
+    @DeleteMapping("/deleteProduct/{id}")
+    public void deleteProduct(@PathVariable int id) {
+        System.out.println("removiendo producto");
+        this.productService.deleteProduct(id);
     }
 }
